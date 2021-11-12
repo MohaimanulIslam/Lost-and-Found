@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30px"
+    android:gravity="center"
+    android:background="#ECF493"
+    tools:context=".Registration">
+
+    <EditText
+        android:id="@+id/reg_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Name"
+        android:gravity="center"
+        android:layout_marginTop="30px"/>
+
+    <EditText
+        android:id="@+id/reg_Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Email"
+        android:gravity="center"
+        android:layout_marginTop="30px"/>
+
+    <EditText
+        android:id="@+id/reg_Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Phone Number"
+        android:gravity="center"
+        android:layout_marginTop="30px"/>
+
+    <EditText
+        android:id="@+id/reg_Pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Coose a Password"
+        android:gravity="center"
+        android:layout_marginTop="30px"/>
+
+    <EditText
+        android:id="@+id/regcon_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:gravity="center"
+        android:layout_marginTop="30px"/>
+
+    <Button
+        android:id="@+id/btn_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resgister"
+        android:enabled="false"
+        android:textColor="#50ffffff"
+        android:background="#632383"
+        android:layout_marginTop="30px"
+        />
+
+
+</LinearLayout>
