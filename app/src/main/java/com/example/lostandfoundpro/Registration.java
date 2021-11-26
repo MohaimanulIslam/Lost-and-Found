@@ -2,6 +2,7 @@ package com.example.lostandfoundpro;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,10 +15,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.lostandfoundpro.ui.gallery.ProfileFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -30,6 +39,10 @@ public class Registration extends AppCompatActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
+    DatabaseReference mDatabase;
+    private String Uid;
+//    String currentUid = firebaseAuth.getCurrentUser().getUid();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +57,8 @@ public class Registration extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        Uid = firebaseAuth.getCurrentUser().getUid();
 
         registerBtn = findViewById(R.id.btn_Reg);
 
@@ -131,20 +146,29 @@ public class Registration extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (email.getText().toString().trim().matches(emailPattern)){
                     if (password.getText().toString().equals(confirmPassword.getText().toString())){
                         firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString())
                                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                                         if (task.isSuccessful()){
+
                                             Map<Object,String> userData = new HashMap<>();
-                                            userData.put("Name",name.getText().toString());
-                                            userData.put("Phone",phone.getText().toString());
-                                            firebaseFirestore.collection("Users")
-                                                    .add(userData);
-                                            Intent intent = new Intent(getApplicationContext(),Dashboard.class);
-                                            startActivity(intent);
+                                            userData.put("Name",name.getText().toString().trim());
+                                            userData.put("Phone",phone.getText().toString().trim());
+
+                                            firebaseFirestore.collection("Users").document(Uid).set(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    Intent intent = new Intent(getApplicationContext(), Profile.class);
+                                                    startActivity(intent);
+                                                }
+                                            });
+
+
                                         }else {
                                             String error = task.getException().getMessage();
                                             Toast.makeText(getApplicationContext(),error,Toast.LENGTH_LONG).show();
@@ -161,6 +185,7 @@ public class Registration extends AppCompatActivity {
         });
 
     }
+
 
     private void ckeckInputValues(){
         if (!TextUtils.isEmpty(name.getText())){

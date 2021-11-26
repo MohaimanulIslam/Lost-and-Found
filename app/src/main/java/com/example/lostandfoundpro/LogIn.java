@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogIn extends AppCompatActivity {
 
@@ -57,6 +58,8 @@ public class LogIn extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
+                                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                                    updateUI(user);
                                     Intent intent = new Intent(getApplicationContext(),Dashboard.class);
                                     startActivity(intent);
                                 }else {
@@ -75,7 +78,6 @@ public class LogIn extends AppCompatActivity {
             }
         });
 
-        ProgressDialog loadingBar;
         forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,10 +88,14 @@ public class LogIn extends AppCompatActivity {
         dontHaveAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Registration.class);
+                Intent intent = new Intent(LogIn.this,Registration.class);
                 startActivity(intent);
             }
         });
+    }
+
+    private void updateUI(FirebaseUser user) {
+
     }
 
     private void showRecoverPasswordDialog() {
@@ -164,6 +170,19 @@ public class LogIn extends AppCompatActivity {
     public void openDialog(){
         CustomDialog customDialog = new CustomDialog();
         customDialog.show(getSupportFragmentManager(),"Custom Dialog");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if(currentUser != null){
+            reload();
+        }
+    }
+
+    private void reload() {
+
     }
 
     public void showToast(){

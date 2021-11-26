@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Lost and Found Pro</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="Log_out">LogOut</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string-array name="category">
+        <item>Lost</item>
+        <item>Found</item>
+    </string-array>
+
+    <string-array name="location">
+        <item>Dhaka</item>
+        <item>Khulna</item>
+        <item>Mymensingh</item>
+        <item>Rajshahi</item>
+        <item>Rangpur</item>
+        <item>Sylhet</item>
+        <item>Barisal</item>
+        <item>Chittagong</item>
+    </string-array>
+
 </resources>
