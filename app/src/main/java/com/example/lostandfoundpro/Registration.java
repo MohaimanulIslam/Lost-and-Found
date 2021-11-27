@@ -39,10 +39,6 @@ public class Registration extends AppCompatActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
-    DatabaseReference mDatabase;
-    private String Uid;
-//    String currentUid = firebaseAuth.getCurrentUser().getUid();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +53,6 @@ public class Registration extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        Uid = firebaseAuth.getCurrentUser().getUid();
 
         registerBtn = findViewById(R.id.btn_Reg);
 
@@ -160,13 +154,20 @@ public class Registration extends AppCompatActivity {
                                             userData.put("Name",name.getText().toString().trim());
                                             userData.put("Phone",phone.getText().toString().trim());
 
-                                            firebaseFirestore.collection("Users").document(Uid).set(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            firebaseFirestore.collection("Users").add(userData).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                                 @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
+                                                public void onComplete(@NonNull Task<DocumentReference> task) {
                                                     Intent intent = new Intent(getApplicationContext(), Profile.class);
                                                     startActivity(intent);
                                                 }
                                             });
+//                                                    .document().set(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                                @Override
+//                                                public void onComplete(@NonNull Task<Void> task) {
+//                                                    Intent intent = new Intent(getApplicationContext(), Profile.class);
+//                                                    startActivity(intent);
+//                                                }
+//                                            });
 
 
                                         }else {

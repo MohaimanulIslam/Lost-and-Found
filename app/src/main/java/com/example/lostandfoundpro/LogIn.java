@@ -43,7 +43,7 @@ public class LogIn extends AppCompatActivity {
         loginEmail = findViewById(R.id.login_email);
         loginPass = findViewById(R.id.login_pass);
         forgotPass = findViewById(R.id.forgot_pass);
-        dontHaveAccount = findViewById(R.id.dont_Account);
+        dontHaveAccount = findViewById(R.id.dont_have_Account);
         loginBtn = findViewById(R.id.login_btn);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -58,8 +58,8 @@ public class LogIn extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
-                                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                                    updateUI(user);
+//                                    FirebaseUser user = firebaseAuth.getCurrentUser();
+//                                    updateUI(user);
                                     Intent intent = new Intent(getApplicationContext(),Dashboard.class);
                                     startActivity(intent);
                                 }else {
@@ -88,15 +88,15 @@ public class LogIn extends AppCompatActivity {
         dontHaveAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LogIn.this,Registration.class);
+                Intent intent = new Intent(getApplicationContext(),Registration.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void updateUI(FirebaseUser user) {
-
-    }
+//    private void updateUI(FirebaseUser user) {
+//
+//    }
 
     private void showRecoverPasswordDialog() {
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
@@ -162,39 +162,39 @@ public class LogIn extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(LogIn.this,"Error Failed",Toast.LENGTH_LONG).show();
+                Toast.makeText(LogIn.this,"Error Failed",Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    public void openDialog(){
-        CustomDialog customDialog = new CustomDialog();
-        customDialog.show(getSupportFragmentManager(),"Custom Dialog");
-    }
+//    public void openDialog(){
+//        CustomDialog customDialog = new CustomDialog();
+//        customDialog.show(getSupportFragmentManager(),"Custom Dialog");
+//    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if(currentUser != null){
-            reload();
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+//        if(currentUser != null){
+//            reload();
+//        }
+//    }
 
-    private void reload() {
+//    private void reload() {
+//
+//    }
 
-    }
-
-    public void showToast(){
-        LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.toast_layout, (ViewGroup)findViewById(R.id.toast_root));
-
-        Toast toast = new Toast(getApplicationContext());
-        toast.setGravity(Gravity.CENTER,0,0);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(view);
-        toast.show();
-
-
-    }
+//    public void showToast(){
+//        LayoutInflater inflater = getLayoutInflater();
+//        View view = inflater.inflate(R.layout.toast_layout, (ViewGroup)findViewById(R.id.toast_root));
+//
+//        Toast toast = new Toast(getApplicationContext());
+//        toast.setGravity(Gravity.CENTER,0,0);
+//        toast.setDuration(Toast.LENGTH_LONG);
+//        toast.setView(view);
+//        toast.show();
+//
+//
+//    }
 }

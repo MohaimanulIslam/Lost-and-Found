@@ -47,11 +47,12 @@
         />
     
     <TextView
-        android:id="@+id/dont_Account"
+        android:id="@+id/dont_have_Account"
         android:text="Don't Have an Account ?? Sign Up"
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"/>
+
 
 </LinearLayout>
