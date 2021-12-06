@@ -2,7 +2,15 @@ package com.example.lostandfoundpro.Model;
 
 public class Users {
 
-    private String username,imgUri;
+    private String address,fullname,username,imgUri;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
 
     public String getUsername() {
         return username;

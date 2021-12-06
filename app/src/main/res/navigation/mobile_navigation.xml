@@ -12,14 +12,63 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_profile"
-        android:name="com.example.lostandfoundpro.ui.gallery.ProfileFragment"
-        android:label="@string/menu_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/nav_lost"
+        android:name="com.example.lostandfoundpro.ui.lost.Lost"
+        android:label="@string/menu_lost"
+        tools:layout="@layout/fragment_lost" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.lostandfoundpro.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_found"
+        android:name="com.example.lostandfoundpro.ui.found.Found"
+        android:label="@string/menu_found"
+        tools:layout="@layout/fragment_found" />
+
+    <fragment
+        android:id="@+id/nav_mymenshing"
+        android:name="com.example.lostandfoundpro.ui.Mymenshing.Mymenshing"
+        android:label="@string/menu_mymenshing"
+        tools:layout="@layout/fragment_mymenshing" />
+
+    <fragment
+        android:id="@+id/nav_rangpur"
+        android:name="com.example.lostandfoundpro.ui.rangpur.Rangpur"
+        android:label="@string/menu_rangpur"
+        tools:layout="@layout/fragment_rangpur" />
+
+    <fragment
+        android:id="@+id/nav_dhaka"
+        android:name="com.example.lostandfoundpro.ui.dhaka.Dhaka"
+        android:label="@string/menu_dhaka"
+        tools:layout="@layout/fragment_dhaka" />
+
+    <fragment
+        android:id="@+id/nav_khulna"
+        android:name="com.example.lostandfoundpro.ui.khulna.Khulna"
+        android:label="@string/menu_khulna"
+        tools:layout="@layout/fragment_khulna" />
+
+    <fragment
+        android:id="@+id/nav_rajshahi"
+        android:name="com.example.lostandfoundpro.ui.rajshahi.Rajshahi"
+        android:label="@string/menu_rajshahi"
+        tools:layout="@layout/fragment_rajshahi" />
+
+    <fragment
+        android:id="@+id/nav_sylhet"
+        android:name="com.example.lostandfoundpro.ui.sylhet.Sylhet"
+        android:label="@string/menu_sylhet"
+        tools:layout="@layout/fragment_sylhet" />
+
+    <fragment
+        android:id="@+id/nav_barishal"
+        android:name="com.example.lostandfoundpro.ui.barishal.Barishal"
+        android:label="@string/menu_barishal"
+        tools:layout="@layout/fragment_barishal" />
+
+    <fragment
+        android:id="@+id/nav_chittagong"
+        android:name="com.example.lostandfoundpro.ui.chittagong.Chittagong"
+        android:label="@string/menu_chitagong"
+        tools:layout="@layout/fragment_chittagong" />
+
 </navigation>

@@ -1,58 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center"
+    android:padding="40dp"
     tools:context=".LogIn">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="50sp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="80dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Address"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="17sp"
+        />
 
     <EditText
         android:id="@+id/login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="@string/email"
         android:gravity="center"
-        android:layout_marginBottom="20px"
-        android:layout_marginTop="50px"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/login_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:gravity="center"
-        android:layout_marginBottom="50px"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginBottom="10dp"
+        tools:ignore="MissingConstraints"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="5dp"
+        />
 
     <TextView
-        android:id="@+id/forgot_pass"
-        android:text="Forgot Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:text="Password"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="17sp"
         />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        android:background="#ffffff"
+        >
+
+        <EditText
+            android:id="@+id/login_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password_login"
+            android:gravity="center"
+            tools:ignore="MissingConstraints"
+            android:inputType="textPassword"
+            android:layout_marginTop="5dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/teal_700"
-        android:text="LOgin"
-        android:layout_marginBottom="20px"
+        android:text="@string/login_btn"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         />
-    
+
+
     <TextView
-        android:id="@+id/dont_have_Account"
-        android:text="Don't Have an Account ?? Sign Up"
-        android:layout_width="match_parent"
-        android:gravity="center"
+        android:id="@+id/forgot_pass"
+        android:text="@string/forgot_password_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_height="wrap_content"/>
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="@string/don_t_have_an_account"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/dont_have_Account"
+            android:text="@string/sign_up_login"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+    
+
 
 
 </LinearLayout>

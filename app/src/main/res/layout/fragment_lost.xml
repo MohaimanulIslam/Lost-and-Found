@@ -5,9 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="60px"
-    android:gravity="center"
-    tools:context=".ui.gallery.ProfileFragment">
+    tools:context=".ui.lost.Lost">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_id_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 

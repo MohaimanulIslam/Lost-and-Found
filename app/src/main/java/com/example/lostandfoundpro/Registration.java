@@ -2,7 +2,6 @@ package com.example.lostandfoundpro;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,19 +12,13 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lostandfoundpro.ui.gallery.ProfileFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -34,6 +27,7 @@ import java.util.Map;
 
 public class Registration extends AppCompatActivity {
 
+    private TextView haveAccount;
     private EditText name,email,phone,password,confirmPassword;
     private Button registerBtn;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -43,6 +37,11 @@ public class Registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        Hide the tool bar from this activity
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_registration);
 
         name = findViewById(R.id.reg_Name);
@@ -50,6 +49,7 @@ public class Registration extends AppCompatActivity {
         phone = findViewById(R.id.reg_Phone);
         password = findViewById(R.id.reg_Pass);
         confirmPassword = findViewById(R.id.regcon_pass);
+        haveAccount = findViewById(R.id.have_Account);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -182,6 +182,13 @@ public class Registration extends AppCompatActivity {
                 }else {
                     email.setError("Email not Valid");
                 }
+            }
+        });
+
+        haveAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),LogIn.class));
             }
         });
 

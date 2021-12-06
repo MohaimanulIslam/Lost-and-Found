@@ -13,15 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LostAndFoundPro">
-        <activity android:name=".AddPost"></activity>
+        <activity android:name=".CommentsActivity"></activity>
+        <activity android:name=".AddPost" />
         <activity android:name=".Profile" />
         <activity
             android:name=".Dashboard"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/Theme.LostAndFoundPro.NoActionBar" />
-        <activity android:name=".Registration" />
-        <activity android:name=".LogIn" />
-        <activity android:name=".SplashScreen">
+        <activity
+            android:name=".Registration"
+            android:theme="@style/Theme.LostAndFoundPro.NoActionBar" />
+        <activity
+            android:name=".LogIn"
+            android:theme="@style/Theme.LostAndFoundPro.NoActionBar" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/Theme.LostAndFoundPro.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

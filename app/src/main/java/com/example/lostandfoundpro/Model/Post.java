@@ -2,7 +2,7 @@ package com.example.lostandfoundpro.Model;
 
 import java.util.Date;
 
-public class Post {
+public class Post extends PostId{
 
     private String Description,PostImg,User,CategoryValue,LocationValue;
     private Date Time;

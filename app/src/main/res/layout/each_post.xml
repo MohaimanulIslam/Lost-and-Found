@@ -4,20 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/teal_200"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"
             android:orientation="vertical"
+            android:padding="15dp"
             >
 
             <LinearLayout
@@ -58,6 +60,15 @@
                         >
 
                         <TextView
+                            android:id="@+id/category_post_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lost"
+                            android:textColor="#000000"
+                            android:textSize="13sp"
+                            android:layout_marginLeft="5dp" />
+
+                        <TextView
                             android:id="@+id/location_post_id"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -74,15 +85,7 @@
                             android:textColor="#000000"
                             android:textSize="13sp"
                             android:layout_marginLeft="5dp" />
-
-                        <TextView
-                            android:id="@+id/category_post_id"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lost"
-                            android:textColor="#000000"
-                            android:textSize="13sp"
-                            android:layout_marginLeft="5dp" />
+                        
 
                     </LinearLayout>
 
@@ -95,15 +98,18 @@
             <ImageView
                 android:id="@+id/post_imageView_id"
                 android:layout_width="match_parent"
-                android:layout_height="201dp"
+                android:layout_height="250dp"
                 tools:layout_editor_absoluteX="2dp"
                 tools:layout_editor_absoluteY="75dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
+                android:layout_marginBottom="15dp"
                 >
 
                 <TextView
@@ -133,7 +139,7 @@
                         android:id="@+id/post_like_image_id"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        app:srcCompat="@drawable/favorite_border_24"
+                        app:srcCompat="@drawable/liked"
                         android:layout_gravity="center"
                         />
 
@@ -143,6 +149,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Likes"
+                        android:layout_marginLeft="10dp"
                         android:textColor="#000000"
                         android:textSize="13sp" />
 

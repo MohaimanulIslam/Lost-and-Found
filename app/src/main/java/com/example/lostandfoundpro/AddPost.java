@@ -55,6 +55,8 @@ public class AddPost extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addpost);
 
+        getSupportActionBar().setTitle("Add a new post");
+
         postImg = findViewById(R.id.post_imgview);
         postDec = findViewById(R.id.post_dec);
         postBtn = findViewById(R.id.post_btn);

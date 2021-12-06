@@ -9,8 +9,22 @@
     <string name="Log_out">LogOut</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_profile">Profile</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_lost">Lost Item</string>
+    <string name="menu_mymenshing">Mymensingh Division</string>
+    <string name="menu_rangpur">Rangpur Division</string>
+    <string name="menu_dhaka">Dhaka Division</string>
+    <string name="menu_khulna">Khulna Division</string>
+    <string name="menu_rajshahi">Rajshahi Division</string>
+    <string name="menu_sylhet">Sylhet Division</string>
+    <string name="menu_barishal">Barishal Division</string>
+    <string name="menu_chitagong">Chittagong Division</string>
+    <string name="menu_found">Found Item</string>
+    <string name="email">Email</string>
+    <string name="password_login">Password</string>
+    <string name="forgot_password_login">Forgot Password</string>
+    <string name="login_btn">Login</string>
+    <string name="don_t_have_an_account">Don\'t Have an Account ??</string>
+    <string name="sign_up_login">Sign Up</string>
 
     <string-array name="category">
         <item>Lost</item>
@@ -27,5 +41,7 @@
         <item>Barisal</item>
         <item>Chittagong</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

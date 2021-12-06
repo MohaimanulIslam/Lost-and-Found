@@ -8,13 +8,65 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_profile" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+
     </group>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_lost"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_lost" />
+        <item
+            android:id="@+id/nav_found"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_found" />
+
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_dhaka"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_dhaka" />
+
+        <item
+            android:id="@+id/nav_mymenshing"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_mymenshing" />
+
+        <item
+            android:id="@+id/nav_rangpur"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_rangpur" />
+
+
+        <item
+            android:id="@+id/nav_khulna"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_khulna" />
+
+        <item
+            android:id="@+id/nav_rajshahi"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_rajshahi" />
+
+        <item
+            android:id="@+id/nav_sylhet"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_sylhet" />
+
+        <item
+            android:id="@+id/nav_barishal"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_barishal" />
+
+        <item
+            android:id="@+id/nav_chittagong"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_chitagong" />
+
+    </group>
+
 </menu>

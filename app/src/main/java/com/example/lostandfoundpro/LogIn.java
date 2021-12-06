@@ -13,6 +13,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,10 +36,17 @@ public class LogIn extends AppCompatActivity {
     private Button loginBtn;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     FirebaseAuth firebaseAuth;
+    private long back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        Hide the tool bar from this activity
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_log_in);
 
         loginEmail = findViewById(R.id.login_email);
@@ -97,6 +106,9 @@ public class LogIn extends AppCompatActivity {
 //    private void updateUI(FirebaseUser user) {
 //
 //    }
+
+
+//    AlertDialog box creating
 
     private void showRecoverPasswordDialog() {
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
@@ -197,4 +209,18 @@ public class LogIn extends AppCompatActivity {
 //
 //
 //    }
+
+    @Override
+    public void onBackPressed() {
+
+        if ((back + 2000) > System.currentTimeMillis()){
+            moveTaskToBack(true);
+            System.exit(2);
+        }else {
+            Toast.makeText(getBaseContext(),"Press again to Exit",Toast.LENGTH_SHORT).show();
+        }
+        back = System.currentTimeMillis();
+    }
+
+
 }

@@ -54,7 +54,7 @@ public class Dashboard extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Add a new Post", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 startActivity(new Intent(getApplicationContext(), AddPost.class));
             }
@@ -65,7 +65,8 @@ public class Dashboard extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_lost, R.id.nav_found,R.id.nav_mymenshing,R.id.nav_rangpur,R.id.nav_barishal,R.id.nav_chittagong,R.id.nav_dhaka,
+                R.id.nav_khulna,R.id.nav_rajshahi,R.id.nav_sylhet)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
