@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,12 @@ import com.bumptech.glide.Glide;
 import com.example.lostandfoundpro.Model.Comments;
 import com.example.lostandfoundpro.Model.Users;
 import com.example.lostandfoundpro.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -23,6 +30,8 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
     private Activity context;
     private List<Users> usersList;
     private List<Comments> commentsList;
+    private FirebaseFirestore firestore;
+    private FirebaseAuth auth;
 
 //    List<Users> usersList
     public CommentsAdapter(Activity context , List<Comments> commentsList){
@@ -35,6 +44,8 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
     @Override
     public CommentsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.each_comment , parent , false);
+        firestore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
         return new CommentsViewHolder(view);
     }
 
@@ -47,6 +58,25 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
 //        Users users = usersList.get(position);
 //        holder.setmUserName(users.getUsername());
 //        holder.setCircleImageView(users.getImgUri());
+
+        String userId = comments.getUser();
+        firestore.collection("ProfileDetails").document(userId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    String username = task.getResult().getString("username");
+                    String images = task.getResult().getString("imgUri");
+
+                    holder.setCircleImageView(images);
+                    holder.setmUserName(username);
+                }else {
+                    Toast.makeText(context,task.getException().toString(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
     }
 
     @Override

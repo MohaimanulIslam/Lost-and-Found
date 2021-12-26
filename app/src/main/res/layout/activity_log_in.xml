@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@drawable/background_layout"
     android:padding="40dp"
     tools:context=".LogIn">
 
@@ -62,6 +63,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/password_login"
             android:gravity="center"
+            android:background="@drawable/background_layout"
             tools:ignore="MissingConstraints"
             android:inputType="textPassword"
             android:layout_marginTop="5dp"

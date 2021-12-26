@@ -92,7 +92,6 @@ public class Lost extends Fragment {
 
         }
 
-
         return  root;
     }
 }
